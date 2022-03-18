@@ -1,0 +1,6 @@
+It's time to take our tour. The table below lists some interesting places to explore. This is by no means a complete list, but it should prove to be an interesting adventure. For each of the directories listed below, do the following:
+
+cd into each directory.
+Use ls to list the contents of the directory.
+If there is an interesting file, use the file command to determine its contents.
+For text files, use less to view them.
