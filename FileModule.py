@@ -1,7 +1,5 @@
 import os
 from CaesarModule import CaesarCipher
-from random import seed
-from random import randint
 
 def read_file(file_name) -> list:
     lines = []
@@ -18,19 +16,18 @@ def read_file(file_name) -> list:
 
         exisiting_file.close()
     except IOError:
-        print("File Not found")
+        print("File Not found. Enter file with absolute or relative path")
+        print()
     
-    print("Completed file preparation...")
+    if lines:
+        print("Completed file preparation...")
     return lines
 
 
 
 def write_file(file_name, contents, shift):
-    seed(1)
-    random_int = randint(1000, 100000)
     file_parts = os.path.splitext(file_name)
-
-    encrypted_file_name = file_parts[0] + "_encrypt_" + str(random_int) + file_parts[1]
+    encrypted_file_name = file_parts[0] + "_encrypt_" + file_parts[1]
 
     try:
         if not bool(contents):
@@ -52,4 +49,5 @@ def write_file(file_name, contents, shift):
 
 def encrypt_file(file_name, shift):
     contents = read_file(file_name)
-    write_file(file_name, contents, shift)
+    if contents:
+        write_file(file_name, contents, shift)
